@@ -1,0 +1,95 @@
+# ── macOS ─────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# ── Windows / Linux (in case of cross-platform contributors) ──
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+
+# ── Editors / IDEs ────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.history/
+.nova/
+
+# ── Project-private planning/source copy ───────────────
+# These files can contain internal notes, approved draft copy,
+# private addresses, or other context that should not be public.
+COPY.md
+instructions.md
+private/
+local/
+notes/
+*.private.*
+
+# ── Node ──────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.yarn/
+.pnp.*
+
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# Virtual environments — ignore common names so a contributor's
+# local venv never ends up in the repo.
+venv/
+.venv/
+env/
+.env-py/
+
+# ── Logs & temp ───────────────────────────────────────
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+.cache/
+
+# ── Local browser/test artifacts ───────────────────────
+screenshots/
+test-results/
+playwright-report/
+coverage/
+
+# ── Environment variables / secrets ───────────────────
+.env
+.env.local
+.env.*.local
+.envrc
+
+# ── Cloudflare local dev (Wrangler, if ever used) ─────
+.wrangler/
+.dev.vars
+
+# ── Build output (not used today, guard against future) ─
+dist/
+build/
+out/

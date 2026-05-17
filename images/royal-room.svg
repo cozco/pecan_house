@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="royalWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3A3025"/>
+      <stop offset="100%" stop-color="#2B2419"/>
+    </linearGradient>
+    <linearGradient id="royalLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F1E8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#F5F1E8" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall background -->
+  <rect width="1200" height="900" fill="url(#royalWall)"/>
+
+  <!-- Tray ceiling -->
+  <polygon points="0,0 1200,0 1100,120 100,120" fill="#5C5D3A" opacity="0.4"/>
+  <polygon points="100,120 1100,120 1080,140 120,140" fill="#8A8B5C" opacity="0.3"/>
+
+  <!-- Bay window: three panels -->
+  <g transform="translate(300, 180)">
+    <!-- Left panel angled -->
+    <polygon points="0,40 120,0 120,400 0,440" fill="#F5F1E8" opacity="0.85"/>
+    <polygon points="0,40 120,0 120,400 0,440" fill="none" stroke="#A89F8C" stroke-width="3"/>
+    <line x1="60" y1="20" x2="60" y2="420" stroke="#A89F8C" stroke-width="1.5"/>
+    <line x1="0" y1="220" x2="120" y2="200" stroke="#A89F8C" stroke-width="1.5"/>
+
+    <!-- Center panel -->
+    <rect x="120" y="0" width="360" height="400" fill="#F5F1E8" opacity="0.9"/>
+    <rect x="120" y="0" width="360" height="400" fill="none" stroke="#A89F8C" stroke-width="3"/>
+    <line x1="240" y1="0" x2="240" y2="400" stroke="#A89F8C" stroke-width="1.5"/>
+    <line x1="360" y1="0" x2="360" y2="400" stroke="#A89F8C" stroke-width="1.5"/>
+    <line x1="120" y1="200" x2="480" y2="200" stroke="#A89F8C" stroke-width="1.5"/>
+
+    <!-- Right panel angled -->
+    <polygon points="480,0 600,40 600,440 480,400" fill="#F5F1E8" opacity="0.85"/>
+    <polygon points="480,0 600,40 600,440 480,400" fill="none" stroke="#A89F8C" stroke-width="3"/>
+    <line x1="540" y1="20" x2="540" y2="420" stroke="#A89F8C" stroke-width="1.5"/>
+    <line x1="480" y1="200" x2="600" y2="220" stroke="#A89F8C" stroke-width="1.5"/>
+
+    <!-- Light streaming through -->
+    <rect x="0" y="0" width="600" height="440" fill="url(#royalLight)" opacity="0.5"/>
+  </g>
+
+  <!-- Drapes -->
+  <g fill="#5C5D3A" opacity="0.7">
+    <path d="M 280 180 Q 290 400 280 620 L 300 620 Q 310 400 300 180 Z"/>
+    <path d="M 900 180 Q 910 400 900 620 L 920 620 Q 930 400 920 180 Z"/>
+  </g>
+
+  <!-- Chandelier -->
+  <g transform="translate(600, 80)">
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#8A8B5C" stroke-width="2"/>
+    <ellipse cx="0" cy="80" rx="40" ry="10" fill="#8A8B5C" opacity="0.6"/>
+    <g fill="#F5F1E8" opacity="0.9">
+      <circle cx="-30" cy="85" r="4"/>
+      <circle cx="-15" cy="90" r="4"/>
+      <circle cx="0" cy="92" r="4"/>
+      <circle cx="15" cy="90" r="4"/>
+      <circle cx="30" cy="85" r="4"/>
+    </g>
+    <ellipse cx="0" cy="80" rx="40" ry="10" fill="none" stroke="#8A8B5C" stroke-width="1"/>
+  </g>
+
+  <!-- Bed -->
+  <g transform="translate(360, 580)">
+    <!-- Headboard -->
+    <rect x="60" y="0" width="360" height="120" fill="#5C5D3A" opacity="0.8"/>
+    <rect x="60" y="0" width="360" height="120" fill="none" stroke="#2B2419" stroke-width="2"/>
+    <rect x="80" y="20" width="320" height="80" fill="none" stroke="#8A8B5C" stroke-width="1.5" opacity="0.8"/>
+    <!-- Mattress -->
+    <rect x="40" y="100" width="400" height="80" fill="#F5F1E8"/>
+    <rect x="40" y="100" width="400" height="80" fill="none" stroke="#A89F8C" stroke-width="1.5"/>
+    <!-- Pillows -->
+    <rect x="80" y="80" width="100" height="40" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1.5" rx="4"/>
+    <rect x="200" y="80" width="100" height="40" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1.5" rx="4"/>
+    <rect x="320" y="80" width="80" height="40" fill="#E5DDC8" stroke="#A89F8C" stroke-width="1.5" rx="4"/>
+    <!-- Throw blanket -->
+    <rect x="40" y="160" width="400" height="20" fill="#8A8B5C" opacity="0.7"/>
+    <!-- Bed frame legs -->
+    <rect x="40" y="180" width="6" height="40" fill="#2B2419"/>
+    <rect x="434" y="180" width="6" height="40" fill="#2B2419"/>
+  </g>
+
+  <!-- Bench at foot of bed -->
+  <g transform="translate(440, 780)">
+    <rect x="0" y="0" width="320" height="30" fill="#5C5D3A" opacity="0.8"/>
+    <rect x="0" y="30" width="6" height="30" fill="#2B2419"/>
+    <rect x="314" y="30" width="6" height="30" fill="#2B2419"/>
+  </g>
+
+  <!-- Side tables with lamps -->
+  <g transform="translate(180, 660)">
+    <rect x="0" y="40" width="80" height="100" fill="#3A3025" stroke="#2B2419" stroke-width="1.5"/>
+    <line x1="40" y1="40" x2="40" y2="140" stroke="#2B2419" stroke-width="0.8" opacity="0.5"/>
+    <!-- Lamp -->
+    <rect x="30" y="0" width="20" height="40" fill="#8A8B5C"/>
+    <ellipse cx="40" cy="-5" rx="25" ry="8" fill="#F5F1E8" opacity="0.85"/>
+    <path d="M 20 0 L 60 0 L 55 -10 L 25 -10 Z" fill="#E5DDC8"/>
+  </g>
+  <g transform="translate(940, 660)">
+    <rect x="0" y="40" width="80" height="100" fill="#3A3025" stroke="#2B2419" stroke-width="1.5"/>
+    <line x1="40" y1="40" x2="40" y2="140" stroke="#2B2419" stroke-width="0.8" opacity="0.5"/>
+    <rect x="30" y="0" width="20" height="40" fill="#8A8B5C"/>
+    <ellipse cx="40" cy="-5" rx="25" ry="8" fill="#F5F1E8" opacity="0.85"/>
+    <path d="M 20 0 L 60 0 L 55 -10 L 25 -10 Z" fill="#E5DDC8"/>
+  </g>
+
+  <!-- Floor -->
+  <rect y="820" width="1200" height="80" fill="#2B2419"/>
+  <g stroke="#3A3025" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="840" x2="1200" y2="840"/>
+    <line x1="0" y1="860" x2="1200" y2="860"/>
+    <line x1="0" y1="880" x2="1200" y2="880"/>
+  </g>
+
+  <!-- Room label -->
+  <g transform="translate(600, 870)" text-anchor="middle">
+    <text fill="#A89F8C" font-family="Georgia, serif" font-size="14" letter-spacing="4" opacity="0.7">THE ROYAL ROOM</text>
+  </g>
+</svg>

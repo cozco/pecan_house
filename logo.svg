@@ -1,0 +1,298 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid meet">
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#F5F1E8"/>
+
+  <!-- ======================== -->
+  <!-- LEFT FOLIAGE (pecan branch) -->
+  <!-- ======================== -->
+  <g transform="translate(220, 180)" stroke="#5C5D3A" stroke-width="2" fill="none">
+    <!-- Main stem -->
+    <path d="M 100 480 Q 90 380 95 280 Q 100 180 110 80" stroke-width="3"/>
+
+    <!-- Leaf cluster 1 (top) -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 110 80 Q 80 60 60 30 Q 70 50 95 75 Z"/>
+      <path d="M 110 80 Q 140 60 160 30 Q 150 50 125 75 Z"/>
+    </g>
+    <!-- Leaf cluster 2 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 105 130 Q 70 110 45 85 Q 60 110 90 125 Z"/>
+      <path d="M 105 130 Q 140 110 165 85 Q 150 110 120 125 Z"/>
+      <line x1="60" y1="105" x2="90" y2="125" stroke-width="0.8"/>
+      <line x1="150" y1="105" x2="120" y2="125" stroke-width="0.8"/>
+    </g>
+    <!-- Leaf cluster 3 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 100 200 Q 60 185 30 165 Q 50 195 85 200 Z"/>
+      <path d="M 100 200 Q 140 185 170 165 Q 150 195 115 200 Z"/>
+      <line x1="50" y1="180" x2="85" y2="200" stroke-width="0.8"/>
+      <line x1="150" y1="180" x2="115" y2="200" stroke-width="0.8"/>
+    </g>
+    <!-- Leaf cluster 4 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 95 280 Q 50 265 20 245 Q 45 275 80 280 Z"/>
+      <path d="M 95 280 Q 140 265 170 245 Q 145 275 110 280 Z"/>
+      <line x1="40" y1="260" x2="80" y2="280" stroke-width="0.8"/>
+      <line x1="150" y1="260" x2="110" y2="280" stroke-width="0.8"/>
+    </g>
+    <!-- Leaf cluster 5 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 92 360 Q 50 350 20 330 Q 45 360 80 365 Z"/>
+      <path d="M 92 360 Q 135 350 165 330 Q 140 360 105 365 Z"/>
+      <line x1="40" y1="345" x2="80" y2="365" stroke-width="0.8"/>
+      <line x1="145" y1="345" x2="105" y2="365" stroke-width="0.8"/>
+    </g>
+    <!-- Leaf cluster 6 (bottom) -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <path d="M 90 440 Q 60 435 35 420 Q 55 445 80 445 Z"/>
+      <path d="M 90 440 Q 120 435 145 420 Q 125 445 100 445 Z"/>
+    </g>
+
+    <!-- Pecan nuts -->
+    <g fill="#5A4530" stroke="#2B2419" stroke-width="1">
+      <ellipse cx="115" cy="160" rx="6" ry="10"/>
+      <ellipse cx="125" cy="240" rx="6" ry="10"/>
+      <ellipse cx="80" cy="320" rx="6" ry="10"/>
+      <ellipse cx="120" cy="400" rx="6" ry="10"/>
+    </g>
+  </g>
+
+  <!-- ======================== -->
+  <!-- RIGHT FOLIAGE (oak/varied) -->
+  <!-- ======================== -->
+  <g transform="translate(820, 240)" stroke="#5C5D3A" stroke-width="2" fill="none">
+    <!-- Main stem -->
+    <path d="M 80 420 Q 90 320 85 220 Q 80 140 90 80" stroke-width="3"/>
+
+    <!-- Cluster 1 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <ellipse cx="50" cy="100" rx="22" ry="14" transform="rotate(-25 50 100)"/>
+      <ellipse cx="125" cy="100" rx="22" ry="14" transform="rotate(25 125 100)"/>
+      <ellipse cx="60" cy="135" rx="20" ry="12" transform="rotate(-15 60 135)"/>
+      <ellipse cx="115" cy="135" rx="20" ry="12" transform="rotate(15 115 135)"/>
+    </g>
+    <!-- Cluster 2 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <ellipse cx="40" cy="180" rx="25" ry="15" transform="rotate(-30 40 180)"/>
+      <ellipse cx="135" cy="180" rx="25" ry="15" transform="rotate(30 135 180)"/>
+      <ellipse cx="55" cy="215" rx="22" ry="14" transform="rotate(-20 55 215)"/>
+      <ellipse cx="120" cy="215" rx="22" ry="14" transform="rotate(20 120 215)"/>
+    </g>
+    <!-- Cluster 3 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <ellipse cx="35" cy="260" rx="28" ry="16" transform="rotate(-30 35 260)"/>
+      <ellipse cx="140" cy="260" rx="28" ry="16" transform="rotate(30 140 260)"/>
+      <ellipse cx="50" cy="295" rx="24" ry="15" transform="rotate(-20 50 295)"/>
+      <ellipse cx="125" cy="295" rx="24" ry="15" transform="rotate(20 125 295)"/>
+    </g>
+    <!-- Cluster 4 -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <ellipse cx="40" cy="340" rx="26" ry="15" transform="rotate(-25 40 340)"/>
+      <ellipse cx="135" cy="340" rx="26" ry="15" transform="rotate(25 135 340)"/>
+      <ellipse cx="55" cy="375" rx="22" ry="13" transform="rotate(-15 55 375)"/>
+      <ellipse cx="120" cy="375" rx="22" ry="13" transform="rotate(15 120 375)"/>
+    </g>
+    <!-- Bottom cluster -->
+    <g fill="#8A8B5C" stroke="#5C5D3A" stroke-width="1.5">
+      <ellipse cx="60" cy="410" rx="20" ry="12" transform="rotate(-15 60 410)"/>
+      <ellipse cx="115" cy="410" rx="20" ry="12" transform="rotate(15 115 410)"/>
+    </g>
+  </g>
+
+  <!-- ======================== -->
+  <!-- VICTORIAN HOUSE -->
+  <!-- ======================== -->
+  <g transform="translate(380, 220)" stroke="#2B2419" fill="none">
+    <!-- Foundation/grass line -->
+    <g fill="#5C5D3A" opacity="0.6" stroke="#5C5D3A" stroke-width="1">
+      <ellipse cx="60" cy="430" rx="40" ry="8"/>
+      <ellipse cx="380" cy="430" rx="45" ry="9"/>
+      <ellipse cx="220" cy="438" rx="180" ry="6"/>
+    </g>
+    <!-- Foundation shrubs -->
+    <g fill="#8A8B5C" opacity="0.85" stroke="#5C5D3A" stroke-width="1">
+      <ellipse cx="40" cy="420" rx="22" ry="14"/>
+      <ellipse cx="80" cy="425" rx="18" ry="11"/>
+      <ellipse cx="380" cy="420" rx="24" ry="14"/>
+      <ellipse cx="350" cy="425" rx="18" ry="11"/>
+    </g>
+
+    <!-- House body (main rectangle) -->
+    <rect x="50" y="180" width="340" height="240" fill="#F5F1E8" stroke-width="2.5"/>
+
+    <!-- Foundation/skirt -->
+    <rect x="40" y="400" width="360" height="20" fill="#8A8B5C" opacity="0.4" stroke-width="1.5"/>
+
+    <!-- Main hipped roof -->
+    <polygon points="40,180 220,60 400,180" fill="#F5F1E8" stroke-width="2.5"/>
+
+    <!-- Roof shingle texture -->
+    <g stroke="#5C5D3A" stroke-width="0.8" opacity="0.6" fill="none">
+      <line x1="60" y1="170" x2="220" y2="80"/>
+      <line x1="100" y1="155" x2="220" y2="95"/>
+      <line x1="140" y1="140" x2="220" y2="110"/>
+      <line x1="180" y1="125" x2="220" y2="125"/>
+      <line x1="220" y1="80" x2="380" y2="170"/>
+      <line x1="220" y1="95" x2="340" y2="155"/>
+      <line x1="220" y1="110" x2="300" y2="140"/>
+      <line x1="220" y1="125" x2="260" y2="130"/>
+    </g>
+
+    <!-- Decorative central gable/dormer -->
+    <polygon points="180,180 220,120 260,180" fill="#F5F1E8" stroke-width="2"/>
+    <!-- Gable trim detail (Victorian gingerbread) -->
+    <path d="M 195 175 Q 220 168 245 175" stroke-width="1.2"/>
+    <!-- Gable window -->
+    <rect x="210" y="150" width="20" height="25" fill="#E5DDC8" stroke-width="1.2"/>
+    <line x1="220" y1="150" x2="220" y2="175" stroke-width="0.8"/>
+
+    <!-- Chimney -->
+    <rect x="320" y="50" width="28" height="80" fill="#F5F1E8" stroke-width="2"/>
+    <rect x="316" y="48" width="36" height="8" fill="#F5F1E8" stroke-width="2"/>
+
+    <!-- Top dormers (small windows in attic) -->
+    <rect x="160" y="135" width="22" height="28" fill="#E5DDC8" stroke-width="1.2"/>
+    <line x1="171" y1="135" x2="171" y2="163" stroke-width="0.6"/>
+    <line x1="160" y1="149" x2="182" y2="149" stroke-width="0.6"/>
+    <rect x="258" y="135" width="22" height="28" fill="#E5DDC8" stroke-width="1.2"/>
+    <line x1="269" y1="135" x2="269" y2="163" stroke-width="0.6"/>
+    <line x1="258" y1="149" x2="280" y2="149" stroke-width="0.6"/>
+
+    <!-- Porch roof -->
+    <rect x="30" y="290" width="380" height="14" fill="#F5F1E8" stroke-width="2"/>
+
+    <!-- Porch columns -->
+    <g stroke-width="1.8" fill="#F5F1E8">
+      <rect x="50" y="304" width="10" height="116"/>
+      <rect x="135" y="304" width="10" height="116"/>
+      <rect x="295" y="304" width="10" height="116"/>
+      <rect x="380" y="304" width="10" height="116"/>
+    </g>
+
+    <!-- Porch railings (left and right of stairs) -->
+    <g stroke-width="1.5">
+      <line x1="60" y1="380" x2="135" y2="380"/>
+      <line x1="60" y1="395" x2="135" y2="395"/>
+      <line x1="305" y1="380" x2="380" y2="380"/>
+      <line x1="305" y1="395" x2="380" y2="395"/>
+    </g>
+    <!-- Railing balusters -->
+    <g stroke-width="0.8">
+      <line x1="70" y1="380" x2="70" y2="420"/>
+      <line x1="82" y1="380" x2="82" y2="420"/>
+      <line x1="94" y1="380" x2="94" y2="420"/>
+      <line x1="106" y1="380" x2="106" y2="420"/>
+      <line x1="118" y1="380" x2="118" y2="420"/>
+      <line x1="130" y1="380" x2="130" y2="420"/>
+      <line x1="312" y1="380" x2="312" y2="420"/>
+      <line x1="324" y1="380" x2="324" y2="420"/>
+      <line x1="336" y1="380" x2="336" y2="420"/>
+      <line x1="348" y1="380" x2="348" y2="420"/>
+      <line x1="360" y1="380" x2="360" y2="420"/>
+      <line x1="372" y1="380" x2="372" y2="420"/>
+    </g>
+
+    <!-- Upper floor windows (4 across) -->
+    <g fill="#E5DDC8" stroke-width="1.8">
+      <rect x="80" y="200" width="42" height="70"/>
+      <rect x="158" y="200" width="42" height="70"/>
+      <rect x="240" y="200" width="42" height="70"/>
+      <rect x="318" y="200" width="42" height="70"/>
+    </g>
+    <!-- Upper window details (4-pane) -->
+    <g stroke-width="0.8" opacity="0.7">
+      <line x1="101" y1="200" x2="101" y2="270"/>
+      <line x1="80" y1="235" x2="122" y2="235"/>
+      <line x1="179" y1="200" x2="179" y2="270"/>
+      <line x1="158" y1="235" x2="200" y2="235"/>
+      <line x1="261" y1="200" x2="261" y2="270"/>
+      <line x1="240" y1="235" x2="282" y2="235"/>
+      <line x1="339" y1="200" x2="339" y2="270"/>
+      <line x1="318" y1="235" x2="360" y2="235"/>
+    </g>
+
+    <!-- Decorative trim line between floors -->
+    <line x1="50" y1="290" x2="390" y2="290" stroke-width="1.5"/>
+
+    <!-- Front door (centered) -->
+    <rect x="200" y="320" width="40" height="100" fill="#5A4530" stroke-width="2"/>
+    <rect x="206" y="330" width="28" height="40" fill="#3F2F1F" stroke-width="0.8"/>
+    <rect x="206" y="380" width="28" height="20" fill="#3F2F1F" stroke-width="0.8"/>
+    <circle cx="232" cy="375" r="2" fill="#5C5D3A"/>
+
+    <!-- Steps -->
+    <rect x="190" y="420" width="60" height="6" fill="#F5F1E8" stroke-width="1.5"/>
+    <rect x="180" y="426" width="80" height="6" fill="#F5F1E8" stroke-width="1.5" opacity="0.9"/>
+
+    <!-- Lower floor windows flanking door -->
+    <g fill="#E5DDC8" stroke-width="1.8">
+      <rect x="75" y="320" width="55" height="60"/>
+      <rect x="310" y="320" width="55" height="60"/>
+    </g>
+    <g stroke-width="0.8" opacity="0.7">
+      <line x1="102" y1="320" x2="102" y2="380"/>
+      <line x1="75" y1="350" x2="130" y2="350"/>
+      <line x1="337" y1="320" x2="337" y2="380"/>
+      <line x1="310" y1="350" x2="365" y2="350"/>
+    </g>
+
+    <!-- Porch ceiling detail (small line) -->
+    <line x1="40" y1="304" x2="400" y2="304" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- TYPOGRAPHY -->
+  <!-- ======================== -->
+
+  <!-- "THE" -->
+  <text x="600" y="780" text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-size="48" font-weight="600" letter-spacing="14"
+        fill="#2B2419">THE</text>
+
+  <!-- "PECAN HOUSE" -->
+  <text x="600" y="870" text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-size="92" font-weight="700" letter-spacing="10"
+        fill="#2B2419">PECAN HOUSE</text>
+
+  <!-- "TEXARKANA" -->
+  <text x="600" y="950" text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-size="48" font-weight="500" letter-spacing="20"
+        fill="#2B2419">TEXARKANA</text>
+
+  <!-- ======================== -->
+  <!-- DECORATIVE FLOURISH/DIVIDER -->
+  <!-- ======================== -->
+  <g transform="translate(600, 1000)">
+    <!-- Left line -->
+    <line x1="-220" y1="0" x2="-40" y2="0" stroke="#2B2419" stroke-width="1.2"/>
+    <!-- Right line -->
+    <line x1="40" y1="0" x2="220" y2="0" stroke="#2B2419" stroke-width="1.2"/>
+
+    <!-- Center floral ornament -->
+    <g fill="#5C5D3A" stroke="#5C5D3A" stroke-width="0.8">
+      <!-- Center dot -->
+      <circle cx="0" cy="0" r="2"/>
+      <!-- Left leaf -->
+      <ellipse cx="-18" cy="0" rx="8" ry="3" transform="rotate(-25 -18 0)"/>
+      <ellipse cx="-12" cy="-5" rx="5" ry="2.5" transform="rotate(-40 -12 -5)"/>
+      <!-- Top leaves -->
+      <ellipse cx="-6" cy="-7" rx="5" ry="2.5" transform="rotate(-60 -6 -7)"/>
+      <ellipse cx="0" cy="-9" rx="5" ry="2.5"/>
+      <ellipse cx="6" cy="-7" rx="5" ry="2.5" transform="rotate(60 6 -7)"/>
+      <!-- Right leaf -->
+      <ellipse cx="12" cy="-5" rx="5" ry="2.5" transform="rotate(40 12 -5)"/>
+      <ellipse cx="18" cy="0" rx="8" ry="3" transform="rotate(25 18 0)"/>
+      <!-- Bottom leaf -->
+      <ellipse cx="0" cy="6" rx="4" ry="2"/>
+    </g>
+  </g>
+
+  <!-- "LUXURY LIVING" -->
+  <text x="600" y="1080" text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-size="36" font-weight="500" letter-spacing="18"
+        fill="#2B2419">LUXURY LIVING</text>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "pecan-house-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for The Pecan House.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/site.test.mjs",
+    "test:py": "python3 -m unittest tests.test_site -v",
+    "test:all": "npm test && npm run test:py",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  }
+}

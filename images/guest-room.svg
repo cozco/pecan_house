@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="guestWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F1E8"/>
+      <stop offset="100%" stop-color="#EFE9DA"/>
+    </linearGradient>
+    <linearGradient id="guestLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#F5F1E8" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall -->
+  <rect width="1200" height="900" fill="url(#guestWall)"/>
+
+  <!-- Crown molding -->
+  <rect width="1200" height="15" fill="#A89F8C" opacity="0.4"/>
+  <line x1="0" y1="20" x2="1200" y2="20" stroke="#A89F8C" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Window -->
+  <g transform="translate(820, 130)">
+    <rect x="0" y="0" width="280" height="380" fill="#F5F1E8" opacity="0.95"/>
+    <rect x="0" y="0" width="280" height="380" fill="none" stroke="#A89F8C" stroke-width="3"/>
+    <line x1="140" y1="0" x2="140" y2="380" stroke="#A89F8C" stroke-width="2"/>
+    <line x1="0" y1="190" x2="280" y2="190" stroke="#A89F8C" stroke-width="2"/>
+    <line x1="70" y1="0" x2="70" y2="380" stroke="#A89F8C" stroke-width="0.8" opacity="0.5"/>
+    <line x1="210" y1="0" x2="210" y2="380" stroke="#A89F8C" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="0" width="280" height="380" fill="url(#guestLight)"/>
+    <!-- Tree silhouette outside -->
+    <g fill="#8A8B5C" opacity="0.4">
+      <ellipse cx="100" cy="280" rx="50" ry="80"/>
+      <ellipse cx="200" cy="320" rx="40" ry="60"/>
+    </g>
+  </g>
+
+  <!-- Light curtains -->
+  <g fill="#F5F1E8" opacity="0.85" stroke="#A89F8C" stroke-width="1">
+    <path d="M 800 120 Q 810 320 800 530 L 830 530 Q 825 320 825 120 Z"/>
+    <path d="M 1095 120 Q 1100 320 1095 530 L 1120 530 Q 1110 320 1115 120 Z"/>
+  </g>
+
+  <!-- Ceiling fan -->
+  <g transform="translate(500, 80)">
+    <circle cx="0" cy="0" r="12" fill="#5C5D3A"/>
+    <line x1="0" y1="0" x2="0" y2="20" stroke="#2B2419" stroke-width="2"/>
+    <ellipse cx="-50" cy="22" rx="55" ry="6" fill="#5C5D3A" opacity="0.8"/>
+    <ellipse cx="50" cy="22" rx="55" ry="6" fill="#5C5D3A" opacity="0.8"/>
+    <ellipse cx="0" cy="35" rx="55" ry="6" fill="#5C5D3A" opacity="0.6"/>
+    <circle cx="0" cy="40" r="15" fill="#A89F8C"/>
+    <circle cx="0" cy="45" r="10" fill="#F5F1E8" opacity="0.85"/>
+  </g>
+
+  <!-- Bed (centered, classic) -->
+  <g transform="translate(300, 460)">
+    <!-- Upholstered headboard -->
+    <rect x="60" y="0" width="380" height="160" fill="#A89F8C" opacity="0.7"/>
+    <rect x="60" y="0" width="380" height="160" fill="none" stroke="#5C5D3A" stroke-width="1.5"/>
+    <!-- Tufting buttons -->
+    <g fill="#5C5D3A" opacity="0.6">
+      <circle cx="120" cy="50" r="3"/>
+      <circle cx="180" cy="50" r="3"/>
+      <circle cx="240" cy="50" r="3"/>
+      <circle cx="300" cy="50" r="3"/>
+      <circle cx="360" cy="50" r="3"/>
+      <circle cx="420" cy="50" r="3"/>
+      <circle cx="150" cy="100" r="3"/>
+      <circle cx="210" cy="100" r="3"/>
+      <circle cx="270" cy="100" r="3"/>
+      <circle cx="330" cy="100" r="3"/>
+      <circle cx="390" cy="100" r="3"/>
+    </g>
+    <!-- Mattress -->
+    <rect x="20" y="140" width="460" height="100" fill="#F5F1E8"/>
+    <rect x="20" y="140" width="460" height="100" fill="none" stroke="#A89F8C" stroke-width="1.5"/>
+    <!-- Pillows -->
+    <rect x="80" y="115" width="120" height="40" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1.5" rx="6"/>
+    <rect x="220" y="115" width="120" height="40" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1.5" rx="6"/>
+    <rect x="360" y="115" width="100" height="40" fill="#8A8B5C" opacity="0.6" stroke="#A89F8C" stroke-width="1.5" rx="6"/>
+    <!-- Foot of bed -->
+    <rect x="20" y="220" width="460" height="20" fill="#5C5D3A" opacity="0.6"/>
+    <!-- Bed frame legs -->
+    <rect x="20" y="240" width="6" height="40" fill="#5C5D3A"/>
+    <rect x="474" y="240" width="6" height="40" fill="#5C5D3A"/>
+  </g>
+
+  <!-- Nightstand left -->
+  <g transform="translate(160, 580)">
+    <rect x="0" y="0" width="120" height="140" fill="#A89F8C" opacity="0.6" stroke="#5C5D3A" stroke-width="1.5"/>
+    <rect x="10" y="20" width="100" height="40" fill="none" stroke="#5C5D3A" stroke-width="0.8"/>
+    <rect x="10" y="70" width="100" height="40" fill="none" stroke="#5C5D3A" stroke-width="0.8"/>
+    <circle cx="60" cy="40" r="3" fill="#5C5D3A"/>
+    <circle cx="60" cy="90" r="3" fill="#5C5D3A"/>
+    <!-- Lamp -->
+    <rect x="50" y="-50" width="20" height="50" fill="#A89F8C"/>
+    <ellipse cx="60" cy="-55" rx="35" ry="10" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1"/>
+    <path d="M 30 -50 L 90 -50 L 80 -68 L 40 -68 Z" fill="#F5F1E8" stroke="#A89F8C" stroke-width="1"/>
+  </g>
+
+  <!-- Small side table right -->
+  <g transform="translate(770, 600)">
+    <rect x="0" y="0" width="100" height="120" fill="#A89F8C" opacity="0.6" stroke="#5C5D3A" stroke-width="1.5"/>
+    <line x1="50" y1="0" x2="50" y2="120" stroke="#5C5D3A" stroke-width="0.8" opacity="0.5"/>
+    <line x1="0" y1="60" x2="100" y2="60" stroke="#5C5D3A" stroke-width="0.8" opacity="0.5"/>
+    <!-- Books stack -->
+    <rect x="20" y="-30" width="60" height="10" fill="#5C5D3A" opacity="0.7"/>
+    <rect x="22" y="-40" width="56" height="10" fill="#8A8B5C" opacity="0.7"/>
+    <rect x="25" y="-50" width="50" height="10" fill="#A89F8C" opacity="0.8"/>
+    <!-- Vase with stems -->
+    <ellipse cx="35" cy="-15" rx="8" ry="4" fill="#5C5D3A"/>
+    <line x1="35" y1="-20" x2="30" y2="-50" stroke="#5C5D3A" stroke-width="1"/>
+    <line x1="35" y1="-20" x2="40" y2="-55" stroke="#5C5D3A" stroke-width="1"/>
+    <ellipse cx="30" cy="-50" rx="3" ry="5" fill="#8A8B5C"/>
+    <ellipse cx="40" cy="-55" rx="3" ry="5" fill="#8A8B5C"/>
+  </g>
+
+  <!-- Small rug -->
+  <ellipse cx="600" cy="830" rx="350" ry="25" fill="#8A8B5C" opacity="0.4"/>
+  <ellipse cx="600" cy="830" rx="320" ry="22" fill="none" stroke="#5C5D3A" stroke-width="1" opacity="0.5"/>
+
+  <!-- Floor -->
+  <rect y="850" width="1200" height="50" fill="#A89F8C" opacity="0.5"/>
+  <g stroke="#8A8B5C" stroke-width="0.8" opacity="0.3">
+    <line x1="0" y1="870" x2="1200" y2="870"/>
+    <line x1="0" y1="890" x2="1200" y2="890"/>
+  </g>
+
+  <!-- Room label -->
+  <g transform="translate(600, 880)" text-anchor="middle">
+    <text fill="#5C5D3A" font-family="Georgia, serif" font-size="14" letter-spacing="4" opacity="0.7">THE GUEST ROOM</text>
+  </g>
+</svg>
