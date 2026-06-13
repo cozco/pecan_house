@@ -501,7 +501,7 @@ class TestStandalonePages(unittest.TestCase):
     def test_waitlist_page_has_matching_brand_chrome(self):
         for html in (self.waitlist_html, self.corporate_html):
             self.assertIn('src="images/brand/pecan-house-logo.png"', html)
-            self.assertIn('href="styles.css"', html)
+            self.assertRegex(html, r'href="styles\.css(?:\?v=[^"]+)?"')
             self.assertIn('src="script.js"', html)
             self.assertIn('href="index.html#about"', html)
             self.assertIn('href="waitlist.html"', html)

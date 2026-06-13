@@ -111,11 +111,11 @@ p { margin: 0 0 1em; }
 }
 .brand:hover { color: var(--color-text); }
 .brand-logo {
-  width: 92px;
-  height: 92px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 8px 18px rgba(45, 45, 45, 0.12));
+  filter: drop-shadow(0 6px 14px rgba(45, 45, 45, 0.1));
 }
 .primary-nav {
   display: flex;
@@ -160,7 +160,7 @@ p { margin: 0 0 1em; }
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 980px) {
   .nav-toggle { display: block; }
   .primary-nav {
     position: absolute;
@@ -1301,8 +1301,8 @@ p { margin: 0 0 1em; }
 
 @media (max-width: 720px) {
   .brand-logo {
-    width: 76px;
-    height: 76px;
+    width: 70px;
+    height: 70px;
   }
   .hero {
     min-height: 650px;
