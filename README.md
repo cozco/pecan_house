@@ -1,6 +1,6 @@
 # The Pecan House
 
-Single-page marketing site for The Pecan House — a 6-bedroom historic stay in Texarkana with a separate carriage house apartment. The site's job is to feel polished, preserve the approved property copy, and funnel visitors to the Airbnb and Vrbo listings.
+Static marketing site for The Pecan House — a 6-bedroom historic stay and furnished corporate housing option in Texarkana with a separate carriage house apartment. The site's job is to feel polished, support corporate and extended-stay inquiries, and funnel visitors to the waitlist or full-property booking links.
 
 ## Stack
 
@@ -13,9 +13,11 @@ Total run rate: ~$10/year for the domain. $0 for hosting.
 ## Files
 
 ```
-index.html      — the page itself
+index.html      — the homepage
+waitlist.html   — waitlist intake page
+corporate-housing.html — corporate housing detail page
 styles.css      — all styling
-script.js       — mobile nav toggle, footer year, and corporate inquiry mailto handoff
+script.js       — mobile nav toggle, footer year, and inquiry mailto handoffs
 _headers        — Cloudflare Pages caching + security headers
 images/         — public web assets copied/optimized from the renovation design folder
 ```
@@ -34,9 +36,19 @@ python3 -m http.server 8000
 
 The main Airbnb and Vrbo links currently point to the platform homepages (`https://www.airbnb.com/` and `https://www.vrbo.com/`) so click behavior can be tested. Replace those full-property links with the real listing URLs once they go live.
 
-Each room also has its own pair of placeholders, such as `[ROYAL_ROOM_AIRBNB_URL]`, `[ROYAL_ROOM_VRBO_URL]`, and `[CARRIAGE_HOUSE_AIRBNB_URL]`. Replace those with the individual room listing URLs when they are ready.
+Room-level Airbnb and Vrbo buttons were intentionally removed. Add them back later only if the room-by-room listing strategy is ready.
 
 The public contact email is `stay@pecanhousetexarkana.info`.
+
+## Google Forms waitlist embed
+
+The waitlist page embeds a Google Form at:
+
+```text
+https://docs.google.com/forms/d/e/1FAIpQLSf54U15VihP3Bj6ZIxUmPtioRNlTGcKq2YoYhOXcP3NPmNEhQ/viewform?embedded=true
+```
+
+If the form changes, replace the iframe `src` in `waitlist.html` with the new Google Forms embed URL.
 
 ## Adding photos
 

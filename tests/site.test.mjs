@@ -21,6 +21,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
 const indexHtml = readFileSync(resolve(ROOT, "index.html"), "utf8");
+const waitlistHtml = readFileSync(resolve(ROOT, "waitlist.html"), "utf8");
+const corporateHousingHtml = readFileSync(resolve(ROOT, "corporate-housing.html"), "utf8");
 const scriptJs = readFileSync(resolve(ROOT, "script.js"), "utf8");
 
 const EXPECTED_ROOMS = ["bay", "garage", "guest", "red", "royal", "twin", "walnut"];
@@ -98,8 +100,8 @@ describe("FAQ accordion (native <details>/<summary>)", () => {
     items = [...doc.querySelectorAll(".faq-item")];
   });
 
-  it("renders seven FAQ items as <details> elements", () => {
-    assert.equal(items.length, 7);
+  it("renders eight FAQ items as <details> elements", () => {
+    assert.equal(items.length, 8);
     for (const item of items) {
       assert.equal(item.tagName, "DETAILS");
       assert.ok(item.querySelector("summary"));
@@ -213,12 +215,8 @@ describe("rooms section", () => {
       const metas = card.querySelectorAll(".room-meta li");
       assert.ok(metas.length >= 1,
         "every room card needs at least one .room-meta li");
-      const roomLinks = card.querySelectorAll(".room-actions a");
-      assert.equal(roomLinks.length, 2, "every room card needs Airbnb and VRBO links");
-      for (const link of roomLinks) {
-        assert.equal(link.getAttribute("target"), "_blank");
-        assert.match(link.getAttribute("rel") || "", /noopener/);
-      }
+      assert.equal(card.querySelectorAll(".room-actions a").length, 0,
+        "room-level Airbnb/VRBO links should stay removed");
     }
   });
 
@@ -263,6 +261,84 @@ describe("corporate inquiry", () => {
       "booking-type",
     ]) {
       assert.ok(doc.getElementById(id), `${id} missing`);
+    }
+  });
+});
+
+describe("corporate housing updates", () => {
+  let doc;
+
+  before(() => {
+    doc = freshDom().window.document;
+  });
+
+  it("uses the corporate housing headline and waitlist CTA in the hero", () => {
+    assert.equal(
+      doc.querySelector(".hero h1").textContent.trim(),
+      "Luxury Corporate Housing in Texarkana",
+    );
+    assert.ok(doc.querySelector('.hero a[href="waitlist.html"]'));
+    assert.ok(doc.querySelector('.hero a[href="corporate-housing.html"]'));
+  });
+
+  it("renders the nearby employer drive-time list", () => {
+    for (const employer of [
+      "CHRISTUS St. Michael Health System",
+      "Wadley Regional Medical Center",
+      "Red River Army Depot",
+      "Cooper Tire",
+      "Texarkana Regional Airport",
+    ]) {
+      assert.match(doc.getElementById("location").textContent, new RegExp(employer));
+    }
+  });
+
+  it("renders the popular guest types section", () => {
+    const section = doc.getElementById("who-stays");
+    assert.ok(section, "who-stays section missing");
+    for (const guestType of [
+      "Traveling Medical Staff",
+      "Construction Managers",
+      "Remote Workers",
+      "Visiting Faculty",
+      "Corporate Relocations",
+      "Family Gatherings",
+    ]) {
+      assert.match(section.textContent, new RegExp(guestType));
+    }
+  });
+});
+
+describe("new standalone pages", () => {
+  it("waitlist page embeds the Google Form", () => {
+    const doc = new JSDOM(waitlistHtml).window.document;
+    const iframe = doc.querySelector(".google-form-shell iframe");
+    assert.ok(iframe, "Google Forms iframe missing");
+    assert.equal(
+      iframe.getAttribute("src"),
+      "https://docs.google.com/forms/d/e/1FAIpQLSf54U15VihP3Bj6ZIxUmPtioRNlTGcKq2YoYhOXcP3NPmNEhQ/viewform?embedded=true",
+    );
+    assert.equal(iframe.getAttribute("title"), "The Pecan House waitlist request form");
+  });
+
+  it("corporate housing page contains perfect-for and benefits content", () => {
+    const doc = new JSDOM(corporateHousingHtml).window.document;
+    assert.match(doc.querySelector("h1").textContent, /Furnished stays/);
+    for (const copy of [
+      "Traveling Nurses",
+      "Plant Shutdown Contractors",
+      "Government Contractors",
+      "Professors",
+      "Engineers",
+      "Insurance Adjusters",
+      "Entire-house rentals",
+      "Individual room rentals",
+      "Monthly invoicing",
+      "Flexible terms",
+      "High-speed Wi-Fi",
+      "Fully furnished",
+    ]) {
+      assert.match(doc.body.textContent, new RegExp(copy));
     }
   });
 });

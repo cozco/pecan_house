@@ -56,4 +56,5 @@
       window.location.href = `mailto:stay@pecanhousetexarkana.info?subject=${subject}&body=${body}`;
     });
   }
+
 })();

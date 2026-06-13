@@ -20,6 +20,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.html"
+WAITLIST = ROOT / "waitlist.html"
+CORPORATE_HOUSING = ROOT / "corporate-housing.html"
 STYLES = ROOT / "styles.css"
 SCRIPT = ROOT / "script.js"
 HEADERS = ROOT / "_headers"
@@ -45,12 +47,15 @@ EXPECTED_BRAND_ASSETS = {
     "pecan-house-favicon.png",
     "robe-embroidery.jpg",
     "robe-slippers-embroidery.jpg",
+    "red-room-bedroom-rendering.jpg",
     "royal-room-rendering.jpg",
     "royal-bath-rendering.jpg",
     "oak-suite-rendering.jpg",
     "pecan-bath-rendering.jpg",
     "parlor-rendering.jpg",
     "carriage-house-rendering.jpg",
+    "twin-room-bedroom-rendering.jpg",
+    "walnut-room-bedroom-rendering.jpg",
 }
 PUBLIC_EMAIL = "stay@pecanhousetexarkana.info"
 FULL_PROPERTY_AIRBNB_URL = "https://www.airbnb.com/"
@@ -107,6 +112,12 @@ def parse(html: str) -> _Collector:
 class TestFilesExist(unittest.TestCase):
     def test_index_exists(self):
         self.assertTrue(INDEX.is_file())
+
+    def test_waitlist_exists(self):
+        self.assertTrue(WAITLIST.is_file())
+
+    def test_corporate_housing_exists(self):
+        self.assertTrue(CORPORATE_HOUSING.is_file())
 
     def test_styles_exists(self):
         self.assertTrue(STYLES.is_file())
@@ -177,9 +188,8 @@ class TestHtmlStructure(unittest.TestCase):
         self.assertIn("width=device-width", viewports[0]["attrs"].get("content", ""))
 
     def test_title_uses_approved_copy(self):
-        # COPY.md page title.
         self.assertIn(
-            "<title>The Pecan House — Historic 6-Bedroom Retreat in Texarkana, AR</title>",
+            "<title>The Pecan House — Luxury Corporate Housing in Texarkana, AR</title>",
             self.html,
         )
 
@@ -188,14 +198,15 @@ class TestHtmlStructure(unittest.TestCase):
         descs = [m for m in metas if m["attrs"].get("name") == "description"]
         self.assertEqual(len(descs), 1)
         content = descs[0]["attrs"].get("content", "")
-        self.assertIn("Six bedrooms, six full baths, two kitchens", content)
+        self.assertIn("Luxury corporate housing in Texarkana", content)
+        self.assertIn("flexible monthly stays", content)
 
     def test_open_graph_uses_approved_copy(self):
         metas = [e for e in self.doc.elements if e["tag"] == "meta"]
         og = {m["attrs"].get("property"): m["attrs"].get("content", "")
               for m in metas if m["attrs"].get("property", "").startswith("og:")}
-        self.assertEqual(og.get("og:title"), "The Pecan House · Texarkana")
-        self.assertIn("Six bedrooms. Six baths. Two kitchens.", og.get("og:description", ""))
+        self.assertEqual(og.get("og:title"), "The Pecan House · Corporate Housing in Texarkana")
+        self.assertIn("Fully furnished private suites", og.get("og:description", ""))
 
     def test_og_image_points_to_brand_jpeg(self):
         metas = [e for e in self.doc.elements if e["tag"] == "meta"]
@@ -230,7 +241,7 @@ class TestAnchors(unittest.TestCase):
         cls.ids = {e["attrs"].get("id") for e in cls.doc.elements if e["attrs"].get("id")}
 
     def test_required_sections_present(self):
-        for required in ("top", "about", "space", "rooms", "amenities", "location", "corporate", "faq", "book"):
+        for required in ("top", "about", "space", "rooms", "amenities", "location", "who-stays", "corporate", "faq", "book"):
             self.assertIn(required, self.ids, f"section id='{required}' missing")
 
     def test_internal_anchors_resolve(self):
@@ -290,10 +301,10 @@ class TestBookingButtons(unittest.TestCase):
 
     def test_button_copy_matches_approved(self):
         text = INDEX.read_text(encoding="utf-8")
-        # Hero buttons.
-        self.assertIn(">Book Entire Space on Airbnb<", text)
-        self.assertIn(">Book Entire Space on VRBO<", text)
-        # Lower section buttons.
+        # Hero buttons now prioritize corporate housing and the waitlist.
+        self.assertIn(">Join Our Waitlist<", text)
+        self.assertIn(">Corporate Housing<", text)
+        # Lower section keeps full-property platform links.
         self.assertIn(">View Entire Space on Airbnb<", text)
         self.assertIn(">View Entire Space on VRBO<", text)
 
@@ -332,6 +343,27 @@ class TestRooms(unittest.TestCase):
         orphans = css_rooms - self.room_values
         self.assertEqual(orphans, set(), f"orphan CSS rooms: {orphans}")
 
+    def test_updated_room_placeholders_are_bedrooms(self):
+        expected = {
+            "red": "images/brand/red-room-bedroom-rendering.jpg",
+            "twin": "images/brand/twin-room-bedroom-rendering.jpg",
+            "walnut": "images/brand/walnut-room-bedroom-rendering.jpg",
+        }
+        for room, path in expected.items():
+            pattern = rf'\.room-photo\[data-room="{room}"\]\s*\{{[^}}]*url\([\'"]?{re.escape(path)}[\'"]?\)'
+            self.assertRegex(self.css, pattern,
+                             f"{room} should use the new bedroom placeholder")
+        for old_path in (
+            "robe-slippers-embroidery.jpg",
+            "royal-bath-rendering.jpg",
+            "pecan-bath-rendering.jpg",
+        ):
+            self.assertNotRegex(
+                self.css,
+                rf'\.room-photo\[data-room="(?:red|twin|walnut)"\]\s*\{{[^}}]*{re.escape(old_path)}',
+                f"{old_path} should not be used for Red, Twin, or Walnut",
+            )
+
     def test_walnut_room_named_correctly(self):
         # Per COPY.md, the sixth bedroom is the Walnut Room.
         self.assertIn("walnut", self.room_values, "walnut room missing from HTML")
@@ -341,16 +373,13 @@ class TestRooms(unittest.TestCase):
         self.assertIn(">Carriage House Apartment<", self.html,
                       "Carriage House Apartment title missing")
 
-    def test_each_room_has_individual_booking_buttons(self):
-        self.assertEqual(self.html.count('class="btn btn-room"'), 7,
-                         "each room should have one Airbnb room button")
-        self.assertEqual(self.html.count('class="btn btn-room btn-room-secondary"'), 7,
-                         "each room should have one VRBO room button")
-        for room in ("ROYAL", "RED", "BAY", "GUEST", "TWIN", "WALNUT"):
-            self.assertIn(f"[{room}_ROOM_AIRBNB_URL]", self.html)
-            self.assertIn(f"[{room}_ROOM_VRBO_URL]", self.html)
-        self.assertIn("[CARRIAGE_HOUSE_AIRBNB_URL]", self.html)
-        self.assertIn("[CARRIAGE_HOUSE_VRBO_URL]", self.html)
+    def test_room_booking_buttons_removed(self):
+        self.assertNotIn("room-actions", self.html)
+        self.assertNotIn("btn-room", self.html)
+        self.assertNotIn("_ROOM_AIRBNB_URL", self.html)
+        self.assertNotIn("_ROOM_VRBO_URL", self.html)
+        self.assertNotIn("CARRIAGE_HOUSE_AIRBNB_URL", self.html)
+        self.assertNotIn("CARRIAGE_HOUSE_VRBO_URL", self.html)
 
 
 # ───────────────────── Corporate inquiry form ──────────────────────── #
@@ -366,7 +395,8 @@ class TestCorporateInquiry(unittest.TestCase):
     def test_corporate_section_exists(self):
         ids = {e["attrs"].get("id") for e in self.doc.elements}
         self.assertIn("corporate", ids, "no #corporate section")
-        self.assertIn("Corporate &amp; Professional Stays", self.html)
+        self.assertIn("Corporate Housing", self.html)
+        self.assertIn("Private suites and whole-house stays", self.html)
 
     def test_corporate_form_targets_public_email(self):
         forms = [e for e in self.doc.elements if e["tag"] == "form"]
@@ -404,6 +434,118 @@ class TestCorporateInquiry(unittest.TestCase):
                          "corporate layout should be a split grid")
 
 
+# ───────────────────── Corporate housing content ───────────────────── #
+
+class TestCorporateHousingContent(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.html = INDEX.read_text(encoding="utf-8")
+        cls.css = STYLES.read_text(encoding="utf-8")
+        cls.doc = parse(cls.html)
+
+    def test_homepage_hero_prioritizes_corporate_housing(self):
+        self.assertIn("Luxury Corporate Housing in Texarkana", self.html)
+        self.assertIn("Fully furnished private suites for traveling professionals", self.html)
+        for phrase in (
+            "Utilities included",
+            "Fast Wi-Fi",
+            "Private baths available",
+            "Flexible monthly stays",
+            "Minutes from downtown and major employers",
+        ):
+            self.assertIn(phrase, self.html)
+
+    def test_waitlist_cta_links_to_page(self):
+        self.assertIn('href="waitlist.html"', self.html)
+        self.assertIn(">Join Our Waitlist<", self.html)
+
+    def test_nearby_employers_replace_long_distance_drive_time(self):
+        for employer in (
+            "CHRISTUS St. Michael Health System",
+            "Wadley Regional Medical Center",
+            "Red River Army Depot",
+            "Cooper Tire",
+            "Texarkana Regional Airport",
+        ):
+            self.assertIn(employer, self.html)
+        self.assertNotIn("Dallas, Shreveport", self.html)
+        self.assertNotIn("Little Rock", self.html)
+
+    def test_who_stays_here_section_exists(self):
+        ids = {e["attrs"].get("id") for e in self.doc.elements}
+        self.assertIn("who-stays", ids)
+        for guest_type in (
+            "Traveling Medical Staff",
+            "Construction Managers",
+            "Remote Workers",
+            "Visiting Faculty",
+            "Corporate Relocations",
+            "Family Gatherings",
+        ):
+            self.assertIn(guest_type, self.html)
+
+    def test_new_section_styles_exist(self):
+        for selector in (".hero-support", ".stay-grid", ".stay-card", ".corporate-points"):
+            self.assertIn(selector, self.css)
+
+
+# ───────────────────────── New standalone pages ────────────────────── #
+
+class TestStandalonePages(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.waitlist_html = WAITLIST.read_text(encoding="utf-8")
+        cls.corporate_html = CORPORATE_HOUSING.read_text(encoding="utf-8")
+        cls.css = STYLES.read_text(encoding="utf-8")
+
+    def test_waitlist_page_has_matching_brand_chrome(self):
+        for html in (self.waitlist_html, self.corporate_html):
+            self.assertIn('src="images/brand/pecan-house-logo.png"', html)
+            self.assertIn('href="styles.css"', html)
+            self.assertIn('src="script.js"', html)
+            self.assertIn('href="index.html#about"', html)
+            self.assertIn('href="waitlist.html"', html)
+            self.assertIn('href="corporate-housing.html"', html)
+
+    def test_waitlist_embeds_google_form(self):
+        self.assertIn("google-form-shell", self.waitlist_html)
+        self.assertIn(
+            "https://docs.google.com/forms/d/e/1FAIpQLSf54U15VihP3Bj6ZIxUmPtioRNlTGcKq2YoYhOXcP3NPmNEhQ/viewform?embedded=true",
+            self.waitlist_html,
+        )
+        self.assertIn('title="The Pecan House waitlist request form"', self.waitlist_html)
+
+    def test_corporate_housing_page_has_requested_sections(self):
+        for phrase in (
+            "Perfect For",
+            "Traveling Nurses",
+            "Plant Shutdown Contractors",
+            "Government Contractors",
+            "Professors",
+            "Engineers",
+            "Insurance Adjusters",
+            "Benefits",
+            "Entire-house rentals",
+            "Individual room rentals",
+            "Monthly invoicing",
+            "Flexible terms",
+            "High-speed Wi-Fi",
+            "Fully furnished",
+        ):
+            self.assertIn(phrase, self.corporate_html)
+
+    def test_subpage_styles_exist(self):
+        for selector in (
+            ".page-hero",
+            ".waitlist-layout",
+            ".google-form-shell",
+            ".corporate-page-grid",
+            ".feature-panel-grid",
+            ".benefit-grid",
+        ):
+            self.assertIn(selector, self.css)
+
+
 # ──────────────────────── Banner & FAQ ──────────────────────────────── #
 
 class TestBanner(unittest.TestCase):
@@ -435,16 +577,16 @@ class TestFaq(unittest.TestCase):
         ids = {e["attrs"].get("id") for e in self.doc.elements}
         self.assertIn("faq", ids, "no #faq section")
 
-    def test_seven_faq_details_blocks(self):
+    def test_eight_faq_details_blocks(self):
         details = [e for e in self.doc.elements if e["tag"] == "details"]
-        self.assertEqual(len(details), 7, f"expected 7 FAQ items, found {len(details)}")
+        self.assertEqual(len(details), 8, f"expected 8 FAQ items, found {len(details)}")
 
     def test_each_details_has_summary(self):
         # Native accordion behavior requires each <details> to have a <summary>.
         # This is a structural sanity check via regex on the source.
         pattern = re.compile(r"<details\b[^>]*>\s*<summary\b", re.IGNORECASE)
         matches = pattern.findall(self.html)
-        self.assertEqual(len(matches), 7, "every <details> should open with a <summary>")
+        self.assertEqual(len(matches), 8, "every <details> should open with a <summary>")
 
     def test_faq_questions_match_copy(self):
         for question in (
@@ -454,6 +596,7 @@ class TestFaq(unittest.TestCase):
             "Are pets allowed?",
             "Can the carriage house apartment be booked separately?",
             "Do you support corporate bookings or custom rates?",
+            "How do I join the waitlist?",
             "What's the cancellation policy?",
         ):
             self.assertIn(question, self.html, f"FAQ missing: {question}")
@@ -657,6 +800,7 @@ class TestScript(unittest.TestCase):
     def test_populates_year(self):
         self.assertIn('getElementById("year")', self.js)
         self.assertIn("getFullYear", self.js)
+
 
 
 # ──────────────────────── Cloudflare _headers ───────────────────────── #
